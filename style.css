@@ -1,5 +1,6 @@
 html, body {
   margin: 0;
+  background-color: black;
 }
 
 html {
@@ -18,10 +19,10 @@ h1 {
   position: absolute;
   margin: 0;
   top: -4px;
-  right: 5px;
+  left: 5px;
 
   color: transparent;
-  text-shadow: 0 0 4px white;
+  text-shadow: 770px 0 white;
 }
 
 p {
@@ -30,4 +31,10 @@ p {
   top: 35px;
   right: 5px;
   color: #aaa;
+}
+canvas {
+  left: 100px;
+  position: absolute;
+  margin: 50px;
+  padding: 169px;
 }
