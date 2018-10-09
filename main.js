@@ -8,8 +8,8 @@ var count = 0;
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
 
-var width = canvas.width = window.innerWidth;
-var height = canvas.height = window.innerHeight;
+var width = canvas.width = 1200;
+var height = canvas.height = 500;
 
 // function to generate random number
 
@@ -48,6 +48,7 @@ Ball.prototype.draw = function() {
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
   ctx.fill();
 };
+
 
 // define ball update method
 
@@ -96,8 +97,8 @@ Ball.prototype.collisionDetect = function() {
 function EvilCircle(x, y, exists) {
   Shape.call(this, x, y, 20, 20, exists);
 
-  this.color = 'white';
-  this.size = 10;
+  this.color = 'red';
+  this.size = 20;
 }
 
 EvilCircle.prototype = Object.create(Shape.prototype);
@@ -182,12 +183,13 @@ var evil = new EvilCircle(random(0,width), random(0,height), true);
 evil.setControls();
 
 function loop() {
-  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.fillStyle = 'navy';
   ctx.fillRect(0,0,width,height);
 
-  while(balls.length < 25) {
+  while(balls.length < 10) {
     var size = random(10,20);
     var ball = new Ball(
+
       // ball position always drawn at least one ball width
       // away from the adge of the canvas, to avoid drawing errors
       random(0 + size,width - size),
@@ -202,6 +204,7 @@ function loop() {
     count++;
     para.textContent = 'Ball count: ' + count;
   }
+
 
   for(var i = 0; i < balls.length; i++) {
     if(balls[i].exists) {
